@@ -1,0 +1,57 @@
+{
+  "employees": [
+    {
+      "id": "1",
+      "prefix": "Mr.",
+      "firstName": "John",
+      "lastName": "Doe",
+      "phoneNumber": "123-456-7890",
+      "homeNumber": "098-765-4321",
+      "email": "john.doe@example.com",
+      "position": "Software Engineer",
+      "image": "https://example.com/images/john_doe.jpg"
+    },
+    {
+      "id": "2",
+      "prefix": "Ms.",
+      "firstName": "Jane",
+      "lastName": "Smith",
+      "phoneNumber": "234-567-8901",
+      "email": "jane.smith@example.com",
+      "position": "Project Manager",
+      "image": "https://example.com/images/jane_smith.jpg"
+    },
+    {
+      "id": "3",
+      "prefix": "Mrs.",
+      "firstName": "Emily",
+      "lastName": "Johnson",
+      "phoneNumber": "345-678-9012",
+      "homeNumber": "210-987-6543",
+      "email": "emily.johnson@example.com",
+      "position": "UX Designer",
+      "image": "https://example.com/images/emily_johnson.jpg"
+    },
+    {
+      "id": "4",
+      "prefix": "Mr.",
+      "firstName": "Michael",
+      "lastName": "Brown",
+      "phoneNumber": "456-789-0123",
+      "email": "michael.brown@example.com",
+      "position": "QA Engineer",
+      "image": "https://example.com/images/michael_brown.jpg"
+    },
+    {
+      "id": "5",
+      "prefix": "Mrs.",
+      "firstName": "Jessica",
+      "lastName": "Davis",
+      "phoneNumber": "567-890-1234",
+      "homeNumber": "321-098-7654",
+      "email": "jessica.davis@example.com",
+      "position": "DevOps Engineer",
+      "image": "https://example.com/images/jessica_davis.jpg"
+    }
+  ]
+}

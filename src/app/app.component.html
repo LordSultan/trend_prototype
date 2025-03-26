@@ -6,7 +6,7 @@
 <!-- * * * * * * * * * Delete the template below * * * * * * * * * -->
 <!-- * * * * * * * to get started with your project! * * * * * * * -->
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-
+<!--
 <style>
   :host {
     --bright-blue: oklch(51.01% 0.274 263.83);
@@ -322,7 +322,39 @@
       </div>
     </div>
   </div>
-</main>
+</main> -->
+
+<!-- <a [routerLink]="['/']">
+  <header class="brand-name">
+    <img class="brand-logo" src="/assets/paypal-svgrepo-com.svg" alt="logo" aria-hidden="true" height="100px" width="100px"/>
+  </header>
+</a> -->
+<h1>Hello, {{ title }}</h1>
+<div *ngIf="showHeader">
+
+  <a [routerLink]="['/settings']">
+    <header class="brand-name">
+      <img class="brand-logo" src="/assets/paypal-svgrepo-com.svg" alt="logo" aria-hidden="true" height="100px" width="100px"/>
+    </header>
+  </a>
+</div>
+<section class="content">
+  <router-outlet></router-outlet>
+</section>
+
+
+
+<!-- <main [ngStyle]="{'background-color': backgroundcolor}">
+  <div *ngIf="showHeader">
+    <header class="brand-name">
+      <img class="brand-logo" src="/assets/paypal-svgrepo-com.svg" alt="logo" />
+    </header>
+  </div>
+  <section class="content">
+    <router-outlet></router-outlet>
+  </section>
+</main> -->
+
 
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * * The content above * * * * * * * * * * * * -->

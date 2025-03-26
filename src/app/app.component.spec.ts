@@ -1,10 +1,29 @@
 import { TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import { ActivatedRoute } from '@angular/router';
+import { of } from 'rxjs';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [AppComponent],
+
+      providers: [
+         {
+                        provide: ActivatedRoute,
+                        useValue: {
+                          // params: of({ id: '1' }), // Mock route parameters
+                          // queryParams: of({ query: 'test' }), // Mock query parameters
+                          // data: of({ someData: 'value' }), // Mock route data if used
+                          // fragment: of('someFragment'), // Mock fragment if used
+                          // snapshot: {
+                          //   paramMap: {
+                          //     get: (key: string) => '1', // Mock snapshot paramMap
+                          //   },
+                          // },
+                        },
+                      },
+      ]
     }).compileComponents();
   });
 
