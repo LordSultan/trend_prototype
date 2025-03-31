@@ -8,22 +8,23 @@ import { ActivatedRoute } from '@angular/router';
 // import { ActivatedRoute, Router, RouterLink, RouterModule, provideRouter  } from '@angular/router';
 // import { of } from 'rxjs';
 // import { By } from '@angular/platform-browser';
+// import { RouterTestingModule } from '@angular/router/testing';
 
 
 
-@Directive({
-  selector: '[routerLink]',
+// @Directive({
+//   selector: '[routerLink]',
 
-})
-class MockRouterLinkDirective {
-  @Input() routerLink: any;
-  // @Input('routerLink') linkParams: any;
-  // navigatedTo: any = null;
+// })
+// class MockRouterLinkDirective {
+//   @Input() routerLink: any;
+//   // @Input('routerLink') linkParams: any;
+//   // navigatedTo: any = null;
 
-  // onClick() {
-  //   this.navigatedTo = this.linkParams;
-  // }
-}
+//   // onClick() {
+//   //   this.navigatedTo = this.linkParams;
+//   // }
+// }
 
 // @Component({ standalone: true, selector: 'app-profile', template: '' })
 // class ProfileStubComponent {}
@@ -72,9 +73,9 @@ describe('SettingsComponent', () => {
         // RouterModule.forRoot([])
 
       ],
-      schemas: [NO_ERRORS_SCHEMA],
+      // schemas: [NO_ERRORS_SCHEMA],
 
-      declarations: [MockRouterLinkDirective], // Add the mock directive to declarations
+      // declarations: [MockRouterLinkDirective], // Add the mock directive to declarations
 
        providers: [
 
@@ -84,15 +85,15 @@ describe('SettingsComponent', () => {
               {
                 provide: ActivatedRoute,
                 useValue: {
-                  params: of({ id: '1' }), // Mock route parameters
-                  queryParams: of({ query: 'test' }), // Mock query parameters
-                  data: of({ someData: 'value' }), // Mock route data if used
-                  fragment: of('someFragment'), // Mock fragment if used
-                  snapshot: {
-                    paramMap: {
-                      get: (key: string) => '1', // Mock snapshot paramMap
-                    },
-                  },
+                  // params: of({ id: '1' }), // Mock route parameters
+                  // queryParams: of({ query: 'test' }), // Mock query parameters
+                  // data: of({ someData: 'value' }), // Mock route data if used
+                  // fragment: of('someFragment'), // Mock fragment if used
+                  // snapshot: {
+                  //   paramMap: {
+                  //     get: (key: string) => '1', // Mock snapshot paramMap
+                  //   },
+                  // },
                 },
               },
             ],
@@ -130,4 +131,5 @@ describe('SettingsComponent', () => {
   //   const debugElements = fixture.debugElement.queryAll(By.directive(MyDirective));
   //   expect(debugElements.length).toBeGreaterThan(0);
   // });
+
 });

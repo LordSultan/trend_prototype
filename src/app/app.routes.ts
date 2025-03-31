@@ -2,10 +2,11 @@ import { Routes } from '@angular/router';
 import { SettingsComponent } from './settings/settings.component';
 import { ProfileComponent } from './profile/profile.component';
 import { LoginComponent } from './login/login.component';
+import { authGuard } from './auth.guard';
 
 export const routes: Routes = [
   {path: 'settings', component: SettingsComponent},
-    { path: 'settings/profile/:id', component: ProfileComponent },
+    { path: 'profile/:id', component: ProfileComponent, canActivate: [authGuard] },
     {path: 'login', component: LoginComponent}
   //   // { path: 'account', component: AccountComponent },
 ];

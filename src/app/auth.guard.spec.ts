@@ -1,69 +1,64 @@
-// import { TestBed } from '@angular/core/testing';
-// import { ActivatedRouteSnapshot, CanActivateFn, Router, RouterStateSnapshot } from '@angular/router';
+import { TestBed } from '@angular/core/testing';
+import { ActivatedRouteSnapshot, CanActivateFn, createUrlTreeFromSnapshot, Router, RouterStateSnapshot } from '@angular/router';
 
-// import { authGuard } from './auth.guard';
-// import { EmployeeService } from './employee/employee.service';
+import { authGuard } from './auth.guard';
+import { EmployeeService } from './employee/employee.service';
+import { inject } from '@angular/core';
 
-// describe('authGuard', () => {
-//   const executeGuard: CanActivateFn = (...guardParameters) =>
-//     TestBed.runInInjectionContext(() => authGuard(...guardParameters));
+describe('authGuard', () => {
 
-//   const mockEmployeeService = jasmine.createSpyObj('EmployeeService', ['getCurrentEmployee']);
-//   const mockRouter = jasmine.createSpyObj('Router', ['navigate']);
+  const executeGuard: CanActivateFn = (...guardParameters) =>
+    TestBed.runInInjectionContext(() => authGuard(...guardParameters));
 
-//   beforeEach(() => {
-//     TestBed.configureTestingModule({
-//       providers: [
-//         { provide: EmployeeService, useValue: mockEmployeeService },
-//         { provide: Router, useValue: mockRouter },
-//       ],
-//     });
-//   });
+  const mockEmployeeService = jasmine.createSpyObj('EmployeeService', ['getCurrentEmployee']);
+  const mockRouter = jasmine.createSpyObj('Router', ['navigate', 'createUrlTree']);
 
-//   it('should be created', () => {
-//     const mockRoute = {} as ActivatedRouteSnapshot;
-//     const mockState = {} as RouterStateSnapshot;
-//     expect(executeGuard(mockRoute, mockState)).toBeTruthy();
-//   });
 
-//   it('should allow access if the user is authenticated', () => {
-//     mockEmployeeService.getCurrentEmployee.and.returnValue({ id: 1, name: 'John Doe' });
-//     const mockRoute = {} as ActivatedRouteSnapshot;
-//     const mockState = {} as RouterStateSnapshot;
-//     expect(executeGuard(mockRoute, mockState)).toBeTrue();
-//   });
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      providers: [
+        { provide: EmployeeService, useValue: mockEmployeeService },
+        { provide: Router, useValue: mockRouter },
+      ],
+    });
+  });
 
-//   it('should deny access and redirect to login if the user is not authenticated', () => {
-//     mockEmployeeService.getCurrentEmployee.and.returnValue(null);
 
-//     const mockRoute: ActivatedRouteSnapshot = {
-//       params: { id: '1' },
-//       queryParams: {},
-//       data: {},
-//       url: [],
-//       fragment: null,
-//       outlet: '',
-//       component: null,
-//       routeConfig: null,
-//       root: null as any,
-//       parent: null,
-//       firstChild: null,
-//       children: [],
-//       pathFromRoot: [],
-//       paramMap: null as any,
-//       queryParamMap: null as any,
-//       title: undefined
-//     };
+  it('should allow access if the user is authenticated', () => {
+    mockEmployeeService.getCurrentEmployee.and.returnValue(
+      {
+            id: '4',
+            firstName: 'Jane',
+            lastName: 'Doe',
+            phoneNumber: '987-654-3210',
+            email: 'jane.doe@example.com',
+            position: 'Designer',
+            image: 'path/to/image.jpg',
+          }
+    );
 
-//     const mockState: RouterStateSnapshot = {
-//       url: '/profile/123',
-//       root: null as any,
-//     };
 
-//     executeGuard(mockRoute, mockState);
-//     expect(mockRouter.navigate).toHaveBeenCalledWith(['/login']);
-//   });
-// });
+    const mockRoute = {} as ActivatedRouteSnapshot;
+    const mockState = {} as RouterStateSnapshot;
+    expect(executeGuard(mockRoute, mockState)).toBeTrue();
+  });
+    it('should deny access and redirect to login if the user is not authenticated', () => {
+      // Mock getCurrentEmployee to return null
+      mockEmployeeService.getCurrentEmployee.and.returnValue(null);
+
+
+      const mockRoute = {} as ActivatedRouteSnapshot;
+      const mockState: RouterStateSnapshot = {
+        url: '/profile/123',
+        root: null as any,
+      };
+
+      const result = executeGuard(mockRoute, mockState);
+      expect(mockRouter.createUrlTree).toHaveBeenCalledWith(['/login']);
+
+    });
+
+});
 
 // import { Injectable } from '@angular/core';
 // import { CanActivate, Router } from '@angular/router';

@@ -18,12 +18,13 @@ export class SettingsComponent {
 
 
   constructor(){
-    this.ngOnInit();
+    // this.ngOnInit();
   }
 
     ngOnInit() {
       this.currentEmployee = this.employeeServies.getCurrentEmployee();
 
+      console.log(this.currentEmployee)
       // Access the route parameter
       // this.employeeServies.getAllEmployeeModules().then((employees) => {
       //   this.currentEmployee = employees[0];

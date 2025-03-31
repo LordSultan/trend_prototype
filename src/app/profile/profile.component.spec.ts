@@ -43,6 +43,14 @@ describe('ProfileComponent', () => {
           useValue: {
             snapshot: {
               params: { id: '1' }, // Mock snapshot.params to include the 'id'
+              paramMap: {
+                get: (key: string) => {
+                  if (key === 'id') {
+                    return '1'; // Mock the value for 'id'
+                  }
+                  return null; // Return null for other keys
+                },
+              }
             },
           },
         },
@@ -56,6 +64,11 @@ describe('ProfileComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should get the employee id', () => {
+    const employeeId = component.route.snapshot.params['id'];
+    expect(employeeId).toBe('1');
   });
 
   it('should display employee name', () => {

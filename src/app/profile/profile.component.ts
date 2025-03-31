@@ -26,11 +26,14 @@ export class ProfileComponent implements OnInit {
     // console.log(this.currentEmployee.firstName);
     // this.employeeId = this.route.snapshot.params["id"];
     // console.log(this.employeeId);
-    this.ngOnInit();
+    // this.ngOnInit();
   }
 
   ngOnInit() {
-    const employeeId = this.route.snapshot.params['id'];
+    // const employeeId = this.route.snapshot.params['id'];
+    const employeeId = this.route.snapshot.paramMap.get('id');
+    console.log("emplpyee id" ,employeeId)
+    console.log("emplpyee id" ,this.route.snapshot.params['id'])
     const cachedEmployee = this.employeeService.getCurrentEmployee();
 
     if (cachedEmployee) {
@@ -44,14 +47,53 @@ export class ProfileComponent implements OnInit {
           console.error('Employee not found!');
         }
       });
+
     }
+
+
   }
 
-  saveProfile() {
+ async saveProfile(id : string, employee: Partial<EmployeeModule>) {
     // Implement save logic here
     console.log('Profile saved', this.currentEmployee);
+    await this.employeeService.patchEmployee(id,  employee);
   }
-  cancelEdit() {
-    throw new Error('Method not implemented.');
+  async cancelEdit(id : string) {
+    console.log('Profile deleted', this.currentEmployee);
+    await this.employeeService.deleteEmployee(id);
+
     }
+
+
+
+
+
+
+    // async  testCreateAndDelete(){
+    //   const newEmployee: EmployeeModule = {
+    //     id: '4',
+    //     firstName: 'Jane',
+    //     lastName: 'Doe',
+    //     phoneNumber: '987-654-3210',
+    //     email: 'jane.doe@example.com',
+    //     position: 'Designer',
+    //     image: 'path/to/image.jpg',
+    //   };
+
+    //   this.employeeService.addEmployee(newEmployee).then((employee) => {
+    //     console.log('Employee added:', employee);
+    //     const AllEmployeeModules = this.employeeService.getAllEmployeeModules().then((employeeModules) => {
+    //       console.log('All Employee Modules:', employeeModules);
+    //       // Delete the added employee
+    //       this.employeeService.deleteEmployee(employee.id as string).then(() => {
+    //         // console.log('Employee deleted:', employee.id);\
+    //         const AllEmployeeModulesedit = this.employeeService.getAllEmployeeModules().then((employeeModules) => {
+    //           console.log('All Employee Modules after deletion:', employeeModules);
+    //         });
+    //       });
+    //     });
+    //   });
+    // }
 }
+
+

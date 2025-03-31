@@ -33,16 +33,6 @@
       "image": "https://example.com/images/emily_johnson.jpg"
     },
     {
-      "id": "4",
-      "prefix": "Mr.",
-      "firstName": "Michael",
-      "lastName": "Brown",
-      "phoneNumber": "456-789-0123",
-      "email": "michael.brown@example.com",
-      "position": "QA Engineer",
-      "image": "https://example.com/images/michael_brown.jpg"
-    },
-    {
       "id": "5",
       "prefix": "Mrs.",
       "firstName": "Jessica",
