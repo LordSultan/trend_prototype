@@ -57,6 +57,7 @@
 <main>
 
 <div class="profile-container">
+
   <div class="profile-picture">
     <img class="profile-image" [src]="'assets/images/profile.jpg'" alt="Profile Image">
     <div class="profile-picture-qr">
@@ -64,6 +65,7 @@
     </div>
   </div>
 
+  <div class="personal-information">
   <div class="profile-info">
     <h1>{{currentEmployee.prefix}} {{currentEmployee.firstName}} {{currentEmployee.lastName}}</h1>
     <p>{{currentEmployee.position}}</p>
@@ -74,25 +76,116 @@
   <div class="contacts-container">
     <div class="contact">
       <a>
-        <img src="assets/images/call.jpg" alt="call">
+        <img src="assets/svgs/contacts/call.svg" alt="call">
       </a>
     </div>
     <div class="contact">
       <a>
-        <img src="assets/images/whatsapp.png" alt="whatsapp">
+        <img src="assets/svgs/contacts/whatsapp.svg" alt="whatsapp">
       </a>
     </div>
     <div class="contact">
       <a>
-        <img src="assets/images/mail.png" alt="mail">
+        <img src="assets/svgs/contacts/mail.svg" alt="mail">
       </a>
     </div>
     <div class="contact">
       <a>
-        <img src="assets/images/share.png" alt="share">
+        <img src="assets/svgs/contacts/share.svg" alt="share">
       </a>
     </div>
   </div>
+
+
+  <div class="contact-actions">
+    <button id="save-contact" (click)="saveContact()">Save Contact</button>
+  <button id="Exchange-contact" (click)="exchangeContact()">Exchange Contact</button>
+</div>
+</div>
+
+  <div class="company-information">
+    <section>
+
+    <ul>
+      <!-- <li class="profile-link"><a [routerLink]="['tel:{{currentEmployee.phoneNumber}}']">{{currentEmployee.phoneNumber}}</a></li> -->
+      <li class="profile-link"><a [routerLink]="['tel:{{currentEmployee.phoneNumber}}']"><app-profile-company-information-link icon="assets/svgs/contacts/phoneNumber.svg" alt="telephone" >{{currentEmployee.phoneNumber}} </app-profile-company-information-link> </a></li>
+      <li class="profile-link"><a [routerLink]="['mailto:{{currentEmployee.email}}']"> <app-profile-company-information-link icon="assets\svgs\contacts\mail.svg" alt="mail" >{{currentEmployee.email}}</app-profile-company-information-link></a></li>
+      <li class="profile-link"><a href="https://www.orchidagroup.com/"><app-profile-company-information-link icon="assets/svgs/contacts/internet.svg" alt="website">https://www.orchidagroup.com</app-profile-company-information-link></a></li>
+      <!-- TODO ADD a variable for location possible specific department location with every employee -->
+      <li class="profile-link"><a href="https://www.google.com/maps/search/?api=1&query=21.551306,39.180139&_ga=2.74872219.885284395.1743462071-132194702.1738870696"><app-profile-company-information-link icon="assets/svgs/contacts/location.svg" alt="location">Sana'a Saoan PostOffice</app-profile-company-information-link></a></li>
+
+    </ul>
+  </section>
+
+<div class="other-links">
+
+<section>
+
+  <h3>Social Media</h3>
+  <ul>
+    <!-- <li class="profile-link" *ngFor="let item of currentEmployee.social"><a [routerLink]="['tel:{{currentEmployee.phoneNumber}}']">{{currentEmployee.phoneNumber}}</a></li> -->
+
+    <!-- mock Item -->
+    <li class="profile-link" ><a [routerLink]="['www.social.com']"><app-profile-company-information-link icon="assets/svgs/contacts/facebook.svg" alt="website">{{currentEmployee.phoneNumber}}</app-profile-company-information-link></a></li>
+  </ul>
+</section>
+
+
+<section>
+
+  <h3>Web Apps</h3>
+  <ul>
+    <!-- <li class="profile-link" *ngFor="let item of currentEmployee.social"><a [routerLink]="['tel:{{currentEmployee.phoneNumber}}']">{{currentEmployee.phoneNumber}}</a></li> -->
+
+    <!-- mock Item -->
+    <li class="profile-link" ><a href="www.path.to.company.profile.pdf"><app-profile-company-information-link icon="assets/svgs/contacts/internet.svg" alt="website">Company Profile</app-profile-company-information-link></a></li>
+    <li class="profile-link" ><a [routerLink]="['/about-trend']"><app-profile-company-information-link icon="assets/svgs/contacts/internet.svg" alt="website">About Us</app-profile-company-information-link></a></li>
+    <li class="profile-link" ><a [routerLink]="['/trend-services']"><app-profile-company-information-link icon="assets/svgs/contacts/internet.svg" alt="website">Our Services</app-profile-company-information-link></a></li>
+    <li class="profile-link" ><a [routerLink]="['/gallary']"><app-profile-company-information-link icon="assets/svgs/contacts/internet.svg" alt="website">Gallary</app-profile-company-information-link></a></li>
+  </ul>
+</section>
+
+
+  </div>
+
+
+  <div class="app-stores-services">
+
+    <button (click)="addAppleToWallet()">Add Apple to Wallet</button>
+
+    <div class="app-stores">
+      <div class="store">
+        <!--  -->
+
+        <a href="https://www.apple.com/app-store/">
+
+          <img src="assets\svgs\apple-store-badge.svg" alt="Apple Store badge">
+
+        </a>
+      </div>
+</div>
+
+
+      <div class="store">
+        <a href="https://play.google.com/store/apps/details?id=com.trend.app&hl=en&gl=US">
+          <img src="assets\svgs\google-play-badge.svg" alt="google play Store badge" style="scale: 125%;">
+          <!-- <svg
+          xmlns="http://www.w3.org/2000/svg"
+          height="14"
+          viewBox="0 -960 960 960"
+          width="14"
+          fill="currentColor"
+        >
+          <path
+            d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h280v80H200v560h560v-280h80v280q0 33-23.5 56.5T760-120H200Zm188-212-56-56 372-372H560v-80h280v280h-80v-144L388-332Z"
+          />
+        </svg> -->
+        </a>
+      </div>
+    </div>
+</div>
+
+
 </div>
 
 </main>

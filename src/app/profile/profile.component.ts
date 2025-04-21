@@ -3,16 +3,27 @@ import { EmployeeService } from '../employee/employee.service';
 import { EmployeeModule } from '../employee/employee.module';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterModule } from '@angular/router';
+import { ProfileCompanyInformationLinkComponent } from './profile-company-information-link/profile-company-information-link.component';
+
 
 @Component({
   selector: 'app-profile',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, RouterModule, ProfileCompanyInformationLinkComponent ],
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.scss']
 })
 export class ProfileComponent implements OnInit {
+exchangeContact() {
+// throw new Error('Method not implemented.');
+}
+saveContact() {
+// throw new Error('Method not implemented.');
+}
+addAppleToWallet() {
+// throw new Error('Method not implemented.');
+}
 
   employeeService: EmployeeService = inject(EmployeeService);
   currentEmployee!: EmployeeModule;

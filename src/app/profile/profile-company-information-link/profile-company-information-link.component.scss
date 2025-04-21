@@ -1,0 +1,28 @@
+.flex-container {
+  display: flex;
+  align-items: center; /* Vertically align items */
+  justify-content: space-between; /* Distribute space between items */
+  gap: 1rem; /* Add spacing between items */
+}
+
+.icon-container {
+  flex: 0 0 auto; /* Take only as much space as needed */
+
+}
+.icon-container img {
+  width: 24px; /* Set a fixed width for the icon */
+  height: 24px; /* Set a fixed height for the icon */
+  margin-right: 8px; /* Add some space to the right of the icon */
+}
+
+.content {
+  flex: 1 1 auto; /* Take the remaining space */
+  white-space: nowrap; /* Prevent text from wrapping */
+  overflow: hidden; /* Hide overflowing text */
+  text-overflow: ellipsis; /* Add ellipsis (...) for overflowing text */
+  text-align: left;
+}
+
+.link-icon {
+  flex: 0 0 auto; /* Take only as much space as needed */
+}

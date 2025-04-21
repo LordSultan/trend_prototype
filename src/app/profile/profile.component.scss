@@ -1,12 +1,28 @@
 .profile-container {
-  display: flex;
-  flex-direction: column;
+  // display: flex;
+  // flex-direction: column;
   align-items: center;
-  padding: 20px;
+  padding: 0px;
+
   background-color: #f9f9f9;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
 }
+.personal-information div{
+margin: 0.25em auto;
+}
+.personal-information > :first-child{
+  margin: -2em auto;
+  margin-bottom: 0.25em;
+}
+
+.store img {
+  width: 150px; /* Adjust the width */
+  height: auto; /* Maintain aspect ratio */
+  margin: 10px 0; /* Add some spacing */
+}
+
 
 .profile-image {
   width: 150px;
@@ -215,28 +231,111 @@ body{
     text-decoration: none;
 
 }
+
 .contacts-container{
     display: flex;
     justify-content: center;
     /* justify-content: space-between; */
     align-items: center;
     margin-top: 20px;
-    width: 50%;
+    width: 60%;
     margin: 0 auto;
 
 }
-.contact{
-    width: 10px;
-    margin: 0 5px;
-    border-radius: 10%;
-    cursor: pointer;
-    flex: 1;
+
+
+.contacts-container .contact img{
+    width: 60%;
+    border-radius: 20%;
+    object-fit: cover;
+    background-color: white;
+    padding: 5px;
+    border: 2px solid #E1E1E1;
+  cursor: pointer;
 
 }
-.contact img{
-    width: 70%;
-    height: 70%;
-    object-fit: cover;
-    border-radius: 10%;
+
+.contact-actions button{
+    width: 60%;
+    height: 40px;
+    background-color: black;
+    border-radius: 10px;
+    border: 2px black;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 0.5em;
 }
+.contact-actions button:last-child{
+    background-color: white;
+    color: black;
+
+  border: 1px solid black;
+
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  // margin-bottom: 0.25em;
+}
+
+.company-information{
+    // display: flex;
+    // justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    width: 100%;
+    margin: 0 auto;
+}
+.company-information h3{
+  // display: flex;
+  // justify-content: center;
+ color: #999;
+ text-align: left;
+ margin-left: 100px;
+ font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+}
+.company-information div{
+    margin: 0.25em auto;
+}
+
+.company-information a{
+    font-size: 14px;
+    color: #1E1F21;
+    margin: 0;
+    margin-bottom: 5px;
+    display: block;
+    text-decoration: none;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+
+}
+.company-information ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+}
+
+.profile-link{
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    margin: 0 auto;
+}
+.company-information ul li {
+border-bottom: #1E1F21 solid 1px;
+    padding: 10px 0;
+}
+
+
+.other-links{
+    // display: flex;
+    // justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    width: 100%;
+    margin: 0 auto;
+}
+
 

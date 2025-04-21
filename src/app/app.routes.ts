@@ -3,11 +3,17 @@ import { SettingsComponent } from './settings/settings.component';
 import { ProfileComponent } from './profile/profile.component';
 import { LoginComponent } from './login/login.component';
 import { authGuard } from './auth.guard';
+import { AboutTrendComponent } from './about-trend/about-trend.component';
+import { GallaryComponent } from './gallary/gallary.component';
+import { TrendServicesComponent } from './trend-services/trend-services.component';
 
 export const routes: Routes = [
   {path: 'settings', component: SettingsComponent},
     { path: 'profile/:id', component: ProfileComponent, canActivate: [authGuard] },
-    {path: 'login', component: LoginComponent}
+    {path: 'login', component: LoginComponent},
+    {path: 'about-trend', component: AboutTrendComponent},
+    {path: 'gallary', component: GallaryComponent},
+    {path: 'trend-services', component: TrendServicesComponent},
   //   // { path: 'account', component: AccountComponent },
 ];
 
