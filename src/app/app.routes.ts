@@ -1,4 +1,4 @@
-import { Routes } from '@angular/router';
+import {RouterModule, Routes } from '@angular/router';
 import { SettingsComponent } from './settings/settings.component';
 import { ProfileComponent } from './profile/profile.component';
 import { LoginComponent } from './login/login.component';
@@ -6,6 +6,7 @@ import { authGuard } from './auth.guard';
 import { AboutTrendComponent } from './about-trend/about-trend.component';
 import { GallaryComponent } from './gallary/gallary.component';
 import { TrendServicesComponent } from './trend-services/trend-services.component';
+import { NgModule } from '@angular/core';
 
 export const routes: Routes = [
   {path: 'settings', component: SettingsComponent},
@@ -17,6 +18,17 @@ export const routes: Routes = [
   //   // { path: 'account', component: AccountComponent },
 ];
 
+@NgModule({
+  imports: [
+    RouterModule.forRoot(routes, {
+      scrollPositionRestoration: 'enabled', // Restores the scroll position
+      anchorScrolling: 'enabled', // Enables anchor scrolling (optional)
+      enableTracing: false, // Set to true for debugging purposes
+    }),
+  ],
+  exports: [RouterModule],
+    })
+    export class AppRoutingModule {}
 // import { NgModule } from '@angular/core';
 // import { RouterModule, Routes } from '@angular/router';
 // // import { AccountComponent } from './account/account.component';
