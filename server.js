@@ -47,8 +47,19 @@ app.get('/api/employees', (req, res) => {
   });
 });
 
+// app.post('/api/employees', (req, res) => {
+//   const db = req.app.get('db');
+//   const { firstName, lastName, email, position, phoneNumber, image } = req.body;
+//   db.query(
+//     'INSERT INTO employees (firstName, lastName, email, position, phoneNumber, image) VALUES (?, ?, ?, ?, ?, ?)',
+//     [firstName, lastName, email, position, phoneNumber, image],
+//     (err, result) => {
+//       if (err) return res.status(500).json({ error: err });
+//       res.json({ id: result.insertId, ...req.body });
+//     }
+//   );
+// });
 app.post('/api/employees', (req, res) => {
-  const db = req.app.get('db');
   const { firstName, lastName, email, position, phoneNumber, image } = req.body;
   db.query(
     'INSERT INTO employees (firstName, lastName, email, position, phoneNumber, image) VALUES (?, ?, ?, ?, ?, ?)',
