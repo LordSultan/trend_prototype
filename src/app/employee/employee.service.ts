@@ -1,5 +1,8 @@
 import { Injectable } from '@angular/core';
 import { EmployeeModule } from './employee.module';
+import { environment } from '../../environments/environment';
+
+// this.http.get(`${environment.apiUrl}/items`);
 
 @Injectable({
   providedIn: 'root'
@@ -7,7 +10,8 @@ import { EmployeeModule } from './employee.module';
 export class EmployeeService {
   private currentEmployee?: EmployeeModule;
 
-  url = 'http://localhost:3000/employees';
+  // url = 'http://localhost:3000/employees';
+  url = environment.apiUrl + '/employees'; // Use the environment variable for the API URL
 
   async getAllEmployeeModules(): Promise<EmployeeModule[]> {
     const data = await fetch(this.url);
@@ -50,6 +54,8 @@ export class EmployeeService {
       if (!this.currentEmployee) {
         const storedEmployee = localStorage.getItem('currentEmployee');
         if (storedEmployee) {
+          // Check if the stored data is valid JSON
+          console.log('Stored employee data:', storedEmployee);
           this.currentEmployee = JSON.parse(storedEmployee);
         }
       }

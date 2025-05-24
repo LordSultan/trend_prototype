@@ -1,5 +1,5 @@
-/* filepath: f:\Lord Sultan\Programming\Angular\trend_prototype\src\app\login\login.component.scss */
-.login-container {
+/* filepath: f:\Lord Sultan\Programming\Angular\trend_prototype\src\app\signup\signup.component.scss */
+.signup-container {
   max-width: 350px;
   margin: 3rem auto;
   padding: 2rem;
@@ -47,6 +47,9 @@
     margin-top: 1rem;
     text-align: center;
   }
-
-
+  .success {
+    color: #388e3c;
+    margin-top: 1rem;
+    text-align: center;
+  }
 }

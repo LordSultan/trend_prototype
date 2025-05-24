@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { EmployeeService } from './../employee/employee.service';
-import { RouterOutlet, RouterModule } from '@angular/router';
+import { Router, RouterOutlet, RouterModule } from '@angular/router';
 import { EmployeeModule } from '../employee/employee.module';
 
 
@@ -14,7 +14,8 @@ import { EmployeeModule } from '../employee/employee.module';
 export class SettingsComponent {
 
   currentEmployee? :EmployeeModule;
-    employeeServies : EmployeeService = inject(EmployeeService);
+    employeeService : EmployeeService = inject(EmployeeService);
+    router: Router = inject(Router);
 
 
   constructor(){
@@ -22,7 +23,7 @@ export class SettingsComponent {
   }
 
     ngOnInit() {
-      this.currentEmployee = this.employeeServies.getCurrentEmployee();
+      this.currentEmployee = this.employeeService.getCurrentEmployee();
 
       console.log(this.currentEmployee)
       // Access the route parameter
@@ -33,5 +34,15 @@ export class SettingsComponent {
 
       // });
     }
+
+
+    logout() {
+  // Clear current employee or authentication info
+  // this.employeeService.setCurrentEmployee(undefined);
+  this.employeeService.clearCurrentEmployee();
+  // Optionally clear tokens or other auth data here
+  this.router.navigate(['/login']);
+}
+
 
 }

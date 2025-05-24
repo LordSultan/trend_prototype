@@ -1,31 +1,35 @@
-import { EmployeeService } from './../employee/employee.service';
 import { Component } from '@angular/core';
+import { Router, RouterModule } from '@angular/router';
+import { EmployeeService } from '../employee/employee.service';
+import { EmployeeModule } from '../employee/employee.module';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [],
+  imports: [CommonModule, FormsModule, RouterModule],
   templateUrl: './login.component.html',
-  styleUrl: './login.component.scss'
+  styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
-  constructor(private employeeService: EmployeeService) {}
- mockLogin() {
-    // Implement login logic here
-    console.log('Login clicked!');
-    const employee =  this.employeeService.getEmployeeModuleById('1').then(employee => {
-      if (employee) {
-        console.log('Employee found:', employee);
-        this.employeeService.setCurrentEmployee(employee!);
-        const currentEmployee = this.employeeService.getCurrentEmployee();
-        console.log('Current Employee:', currentEmployee);
+  email = '';
+  phoneNumber = '';
+  error = '';
 
-      } else {
-        console.error('Employee not found!');
-      }
-    }
+  constructor(private employeeService: EmployeeService, private router: Router) {}
+
+  async login() {
+    const employees = await this.employeeService.getAllEmployeeModules();
+    const found = employees.find(
+      emp => emp.email === this.email && emp.phoneNumber === this.phoneNumber
     );
-
-
-}
+    if (found) {
+      // Optionally set the current employee in the service
+      this.employeeService.setCurrentEmployee(found);
+      this.router.navigate(['/profile', found.id]);
+    } else {
+      this.error = 'Invalid email or phone number.';
+    }
+  }
 }

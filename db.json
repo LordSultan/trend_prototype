@@ -42,6 +42,24 @@
       "email": "jessica.davis@example.com",
       "position": "DevOps Engineer",
       "image": "https://example.com/images/jessica_davis.jpg"
+    },
+    {
+      "id": "",
+      "firstName": "Lord",
+      "lastName": "Sultan",
+      "email": "sultansaryah@gmail.com",
+      "phoneNumber": "+967780705908",
+      "position": "Manager",
+      "image": "image.url"
+    },
+    {
+      "id": "",
+      "firstName": "Ahmed",
+      "lastName": "Al-hire",
+      "email": "2@gmail.com",
+      "phoneNumber": "+967772964949",
+      "position": "Admin",
+      "image": ""
     }
   ]
 }

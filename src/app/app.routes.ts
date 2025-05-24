@@ -7,6 +7,7 @@ import { AboutTrendComponent } from './about-trend/about-trend.component';
 import { GallaryComponent } from './gallary/gallary.component';
 import { TrendServicesComponent } from './trend-services/trend-services.component';
 import { NgModule } from '@angular/core';
+import { SignupComponent } from './signup/signup.component';
 
 export const routes: Routes = [
   {path: 'settings', component: SettingsComponent},
@@ -15,6 +16,7 @@ export const routes: Routes = [
     {path: 'about-trend', component: AboutTrendComponent},
     {path: 'gallary', component: GallaryComponent},
     {path: 'trend-services', component: TrendServicesComponent},
+    { path: 'signup', component: SignupComponent }
   //   // { path: 'account', component: AccountComponent },
 ];
 
