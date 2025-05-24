@@ -71,13 +71,13 @@ app.post('/api/employees', (req, res) => {
   );
 });
 
-// Serve static files from the Angular dist directory
-app.use(express.static(path.join(__dirname, 'dist/trend-prototype')));
+// // Serve static files from the Angular dist directory
+// app.use(express.static(path.join(__dirname, 'dist/trend-prototype')));
 
-// For any other route, serve index.html (for Angular routing)
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'dist/trend-prototype/index.html'));
-});
+// // For any other route, serve index.html (for Angular routing)
+// app.get('*', (req, res) => {
+//   res.sendFile(path.join(__dirname, 'dist/trend-prototype/index.html'));
+// });
 
 const PORT = process.env.PORT || 10000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
