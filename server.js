@@ -8,10 +8,10 @@ app.use(express.json());
 
 function handleDisconnect() {
   const db = mysql.createConnection({
-    host: 'auth-db1710.hstgr.io',
-    user: 'u685039389_tester',
+    host: 'https://auth-db1710.hstgr.io/',
+    user: 'u685039389_testerr',
     password: 'Jr8$17f&&RG',
-    database: 'u685039389_test'
+    database: 'u685039389_testt'
   });
 
   db.connect((err) => {
