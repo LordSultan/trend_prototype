@@ -5,32 +5,45 @@ const cors = require('cors');
 const app = express();
 app.use(cors());
 app.use(express.json());
-const db = mysql.createConnection({
-  host: 'auth-db1710.hstgr.io',
-  user: 'u685039389_tester',
-  password: 'Jr8$17f&&RG',
-  database: 'u685039389_test'
-});
 
-db.connect((err) => {
-  if (err) {
-    console.error('Database connection failed:', err);
-    process.exit(1);  // Stop app if DB connection fails at start
-  } else {
-    console.log('Connected to the database');
-  }
-});
+function handleDisconnect() {
+  const db = mysql.createConnection({
+    host: 'auth-db1710.hstgr.io',
+    user: 'u685039389_tester',
+    password: 'Jr8$17f&&RG',
+    database: 'u685039389_test'
+  });
+
+  db.connect((err) => {
+    if (err) {
+      console.error('Database connection failed:', err);
+      setTimeout(handleDisconnect, 2000); // Try again after 2 seconds
+    } else {
+      console.log('Connected to the database');
+    }
+  });
+
+  db.on('error', (err) => {
+    console.error('Database error:', err);
+    if (err.code === 'PROTOCOL_CONNECTION_LOST' || err.code === 'ECONNRESET') {
+      handleDisconnect(); // Reconnect on connection loss
+    } else {
+      throw err;
+    }
+  });
+
+  // Attach db to app so routes can use it
+  app.set('db', db);
+}
+
+handleDisconnect();
 
 app.get('/api/employees', (req, res) => {
+  const db = req.app.get('db');
   db.query('SELECT * FROM employees', (err, results) => {
     if (err) return res.status(500).json({ error: err });
     res.json(results);
   });
-});
-
-db.on('error', (err) => {
-  console.error('Database error:', err);
-  // Optionally try to reconnect here or handle gracefully
 });
 
 const PORT = process.env.PORT || 10000;
