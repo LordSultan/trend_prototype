@@ -1,6 +1,7 @@
 const express = require('express');
 const mysql = require('mysql2');
 const cors = require('cors');
+const path = require('path');
 
 const app = express();
 app.use(cors());
@@ -57,6 +58,14 @@ app.post('/api/employees', (req, res) => {
       res.json({ id: result.insertId, ...req.body });
     }
   );
+});
+
+// Serve static files from the Angular dist directory
+app.use(express.static(path.join(__dirname, 'dist/trend-prototype')));
+
+// For any other route, serve index.html (for Angular routing)
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'dist/trend-prototype/index.html'));
 });
 
 const PORT = process.env.PORT || 10000;
