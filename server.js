@@ -8,7 +8,7 @@ app.use(express.json());
 
 function handleDisconnect() {
   const db = mysql.createConnection({
-    host: 'https://auth-db1710.hstgr.io/',
+    host: 'auth-db1710.hstgr.io', // REMOVE https:// and trailing slash
     user: 'u685039389_testerr',
     password: 'Jr8$17f&&RG',
     database: 'u685039389_testt'
