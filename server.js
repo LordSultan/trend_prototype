@@ -21,12 +21,13 @@ db.connect((err) => {
   }
 });
 
-app.get('/api/items', (req, res) => {
+app.get('/api/employees', (req, res) => {
   db.query('SELECT * FROM items', (err, results) => {
     if (err) return res.status(500).json({ error: err });
     res.json(results);
   });
 });
+
 db.on('error', (err) => {
   console.error('Database error:', err);
   // Optionally try to reconnect here or handle gracefully
