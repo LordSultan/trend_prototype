@@ -7,10 +7,10 @@ app.use(cors());
 app.use(express.json());
 
 const db = mysql.createConnection({
-  host: 'your-hostinger-mysql-host',
-  user: 'your-db-user',
-  password: 'your-db-password',
-  database: 'your-db-name'
+  host: 'auth-db1710.hstgr.io',
+  user: 'u685039389_tester',
+  password: 'Jr8$17f&&RG',
+  database: 'u685039389_test'
 });
 
 app.get('/api/items', (req, res) => {
