@@ -22,7 +22,7 @@ db.connect((err) => {
 });
 
 app.get('/api/employees', (req, res) => {
-  db.query('SELECT * FROM items', (err, results) => {
+  db.query('SELECT * FROM employees', (err, results) => {
     if (err) return res.status(500).json({ error: err });
     res.json(results);
   });
